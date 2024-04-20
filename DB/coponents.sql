@@ -1,0 +1,8 @@
+﻿CREATE TABLE components
+(
+	[Id] INT NOT NULL PRIMARY KEY,
+	[name] NCHAR(50) NOT NULL,
+	[type] NCHAR(50) NOT NULL,
+	[price] NUMERIC NOT NULL,
+	[stock] INT NOT NULL
+)
