@@ -29,51 +29,64 @@
         private void InitializeComponent()
         {
             flowLayoutPanel1 = new FlowLayoutPanel();
-            pictureBox3 = new PictureBox();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
+            ForGames = new PictureBox();
+            ForServers = new PictureBox();
+            ForWork = new PictureBox();
             pictureBox4 = new PictureBox();
             flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ForGames).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ForServers).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ForWork).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Controls.Add(pictureBox3);
-            flowLayoutPanel1.Controls.Add(pictureBox1);
-            flowLayoutPanel1.Controls.Add(pictureBox2);
+            flowLayoutPanel1.Controls.Add(ForGames);
+            flowLayoutPanel1.Controls.Add(ForServers);
+            flowLayoutPanel1.Controls.Add(ForWork);
             flowLayoutPanel1.Controls.Add(pictureBox4);
             flowLayoutPanel1.Location = new Point(12, 12);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(772, 426);
             flowLayoutPanel1.TabIndex = 0;
             // 
-            // pictureBox3
+            // ForGames
             // 
-            pictureBox3.Location = new Point(3, 3);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(187, 135);
-            pictureBox3.TabIndex = 13;
-            pictureBox3.TabStop = false;
+            ForGames.BackgroundImageLayout = ImageLayout.None;
+            ForGames.Cursor = Cursors.Hand;
+            ForGames.Image = Properties.Resources.ForGames;
+            ForGames.Location = new Point(3, 3);
+            ForGames.Name = "ForGames";
+            ForGames.Size = new Size(187, 135);
+            ForGames.SizeMode = PictureBoxSizeMode.StretchImage;
+            ForGames.TabIndex = 13;
+            ForGames.TabStop = false;
+            ForGames.Click += pictureBox3_Click;
             // 
-            // pictureBox1
+            // ForServers
             // 
-            pictureBox1.Location = new Point(196, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(187, 135);
-            pictureBox1.TabIndex = 14;
-            pictureBox1.TabStop = false;
+            ForServers.Cursor = Cursors.Hand;
+            ForServers.Image = Properties.Resources.ForServers;
+            ForServers.Location = new Point(196, 3);
+            ForServers.Name = "ForServers";
+            ForServers.Size = new Size(187, 135);
+            ForServers.SizeMode = PictureBoxSizeMode.StretchImage;
+            ForServers.TabIndex = 14;
+            ForServers.TabStop = false;
+            ForServers.Click += pictureBox1_Click;
             // 
-            // pictureBox2
+            // ForWork
             // 
-            pictureBox2.Location = new Point(389, 3);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(187, 135);
-            pictureBox2.TabIndex = 15;
-            pictureBox2.TabStop = false;
+            ForWork.Cursor = Cursors.Hand;
+            ForWork.Image = Properties.Resources.ForWork;
+            ForWork.Location = new Point(389, 3);
+            ForWork.Name = "ForWork";
+            ForWork.Size = new Size(187, 135);
+            ForWork.SizeMode = PictureBoxSizeMode.StretchImage;
+            ForWork.TabIndex = 15;
+            ForWork.TabStop = false;
+            ForWork.Click += pictureBox2_Click;
             // 
             // pictureBox4
             // 
@@ -92,9 +105,9 @@
             Name = "Form2";
             Text = "Form2";
             flowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ForGames).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ForServers).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ForWork).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
         }
@@ -102,9 +115,9 @@
         #endregion
 
         private FlowLayoutPanel flowLayoutPanel1;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
+        private PictureBox ForGames;
+        private PictureBox ForServers;
+        private PictureBox ForWork;
         private PictureBox pictureBox4;
     }
 }

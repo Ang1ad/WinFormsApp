@@ -2,6 +2,7 @@ using WinFormsApp.ORM;
 using Microsoft.EntityFrameworkCore;
 using System;
 using Microsoft.VisualBasic.Logging;
+using BCrypt.Net;
 
 namespace WinFormsApp
 {
@@ -11,7 +12,7 @@ namespace WinFormsApp
         {
             InitializeComponent();
         }
-
+        #region login
         private void button1_Click(object sender, EventArgs e)
         {
             var options = new DbContextOptionsBuilder<OrdersContext>()
@@ -22,15 +23,18 @@ namespace WinFormsApp
 
             try
             {
-                using (var db = new OrdersContext(options))
+                using (var db = new WinFormsApp.ORM.OrdersContext(options))
                 {
                     var customer = db.Customers
-                        .SingleOrDefault(c => c.Login == login && c.Password == password);
-
-                    if (customer != null)
+                        .SingleOrDefault(c => c.Login == login);
+                     
+                    if (customer != null && BCrypt.Net.BCrypt.Verify(password, customer.Password))
                     {
                         MessageBox.Show("Авторизация успешна!");
-                        // Дополнительные действия при успешной авторизации, например, открытие новой формы
+                        var SecondForm = new Form2();
+                        SecondForm.ShowDialog();
+
+                        this.Dispose();
                     }
                     else
                     {
@@ -43,7 +47,8 @@ namespace WinFormsApp
                 MessageBox.Show($"Произошла ошибка: {ex.Message}");
             }
         }
-
+        #endregion
+        #region register
         private void registerButton_Click(object sender, EventArgs e)
         {
             var options = new DbContextOptionsBuilder<OrdersContext>()
@@ -58,10 +63,11 @@ namespace WinFormsApp
                 {
                     using (var db = new WinFormsApp.ORM.OrdersContext(options))
                     {
-                        var customer = new WinFormsApp.ORM.Customers
-                        {
+                        var hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+                        var customer = new Customers
+                        {   
                             Login = login,
-                            Password = password
+                            Password = hashedPassword
                         };
 
                         db.Customers.Add(customer);
@@ -79,5 +85,6 @@ namespace WinFormsApp
                 Console.WriteLine($"Произошла ошибка: {ex.Message}");
             }
         }
+        #endregion
     }
 }
