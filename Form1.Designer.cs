@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             loginLoginTextBox = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
+            loginButton = new Button();
+            registerButton = new Button();
             passwordLoginTextBox = new TextBox();
             loginRegisterTextBox = new TextBox();
             passwordRegisterTextBox = new TextBox();
@@ -49,24 +49,25 @@
             loginLoginTextBox.Size = new Size(125, 27);
             loginLoginTextBox.TabIndex = 0;
             // 
-            // button1
+            // loginButton
             // 
-            button1.Location = new Point(47, 193);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 1;
-            button1.Text = "Login";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            loginButton.Location = new Point(47, 193);
+            loginButton.Name = "loginButton";
+            loginButton.Size = new Size(94, 29);
+            loginButton.TabIndex = 1;
+            loginButton.Text = "Login";
+            loginButton.UseVisualStyleBackColor = true;
+            loginButton.Click += button1_Click;
             // 
-            // button2
+            // registerButton
             // 
-            button2.Location = new Point(233, 193);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 2;
-            button2.Text = "Register";
-            button2.UseVisualStyleBackColor = true;
+            registerButton.Location = new Point(233, 193);
+            registerButton.Name = "registerButton";
+            registerButton.Size = new Size(94, 29);
+            registerButton.TabIndex = 2;
+            registerButton.Text = "Register";
+            registerButton.UseVisualStyleBackColor = true;
+            registerButton.Click += registerButton_Click;
             // 
             // passwordLoginTextBox
             // 
@@ -158,8 +159,8 @@
             Controls.Add(passwordRegisterTextBox);
             Controls.Add(loginRegisterTextBox);
             Controls.Add(passwordLoginTextBox);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(registerButton);
+            Controls.Add(loginButton);
             Controls.Add(loginLoginTextBox);
             Name = "Form1";
             Text = "Login or register";
@@ -169,13 +170,13 @@
 
         #endregion
 
-        private TextBox loginLoginTextBox;
-        private Button button1;
-        private Button button2;
-        private TextBox passwordLoginTextBox;
-        private TextBox loginRegisterTextBox;
-        private TextBox passwordRegisterTextBox;
-        private TextBox repeatPasswordRegisterTextBox;
+        public TextBox loginLoginTextBox;
+        public Button loginButton;
+        public Button registerButton;
+        public TextBox passwordLoginTextBox;
+        public TextBox loginRegisterTextBox;
+        public TextBox passwordRegisterTextBox;
+        public TextBox repeatPasswordRegisterTextBox;
         private Label loginLabelLogin;
         private Label passwordLabelLogin;
         private Label loginLabelRegister;
