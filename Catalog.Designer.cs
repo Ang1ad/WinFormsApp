@@ -48,7 +48,7 @@
             flowLayoutPanel1.Controls.Add(pictureBox4);
             flowLayoutPanel1.Location = new Point(12, 12);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(772, 426);
+            flowLayoutPanel1.Size = new Size(532, 411);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // ForGames
@@ -58,7 +58,7 @@
             ForGames.Image = Properties.Resources.ForGames;
             ForGames.Location = new Point(3, 3);
             ForGames.Name = "ForGames";
-            ForGames.Size = new Size(187, 135);
+            ForGames.Size = new Size(268, 197);
             ForGames.SizeMode = PictureBoxSizeMode.StretchImage;
             ForGames.TabIndex = 13;
             ForGames.TabStop = false;
@@ -68,9 +68,9 @@
             // 
             ForServers.Cursor = Cursors.Hand;
             ForServers.Image = Properties.Resources.ForServers;
-            ForServers.Location = new Point(196, 3);
+            ForServers.Location = new Point(277, 3);
             ForServers.Name = "ForServers";
-            ForServers.Size = new Size(187, 135);
+            ForServers.Size = new Size(244, 197);
             ForServers.SizeMode = PictureBoxSizeMode.StretchImage;
             ForServers.TabIndex = 14;
             ForServers.TabStop = false;
@@ -80,9 +80,9 @@
             // 
             ForWork.Cursor = Cursors.Hand;
             ForWork.Image = Properties.Resources.ForWork;
-            ForWork.Location = new Point(389, 3);
+            ForWork.Location = new Point(3, 206);
             ForWork.Name = "ForWork";
-            ForWork.Size = new Size(187, 135);
+            ForWork.Size = new Size(268, 200);
             ForWork.SizeMode = PictureBoxSizeMode.StretchImage;
             ForWork.TabIndex = 15;
             ForWork.TabStop = false;
@@ -90,20 +90,24 @@
             // 
             // pictureBox4
             // 
-            pictureBox4.Location = new Point(582, 3);
+            pictureBox4.Cursor = Cursors.Hand;
+            pictureBox4.Image = Properties.Resources.hyperpc_teaser_configurator;
+            pictureBox4.Location = new Point(277, 206);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(187, 135);
+            pictureBox4.Size = new Size(244, 200);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 16;
             pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(796, 450);
+            ClientSize = new Size(550, 427);
             Controls.Add(flowLayoutPanel1);
             Name = "Form2";
-            Text = "Form2";
+            Text = "Catalog";
             flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)ForGames).EndInit();
             ((System.ComponentModel.ISupportInitialize)ForServers).EndInit();

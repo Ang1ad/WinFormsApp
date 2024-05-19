@@ -30,12 +30,20 @@ namespace WinFormsApp
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            var ServerForm = new ForServers();
+            ServerForm.ShowDialog();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+            var WorkForm = new ForWork();
+            WorkForm.ShowDialog();
+        }
 
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            var ConstructorForm = new Constructor();
+            ConstructorForm.ShowDialog();
         }
     }
 }
