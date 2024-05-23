@@ -32,9 +32,8 @@ namespace WinFormsApp
                     {
                         MessageBox.Show("Авторизация успешна!");
                         var SecondForm = new Form2();
+                        this.Hide();
                         SecondForm.ShowDialog();
-
-                        this.Dispose();
                     }
                     else
                     {
