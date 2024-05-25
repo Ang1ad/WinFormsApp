@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,15 @@ namespace WinFormsApp
 {
     public partial class ForGames : Form
     {
+       
         public ForGames()
         {
             InitializeComponent();
+        }
+
+        private void ForGames_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

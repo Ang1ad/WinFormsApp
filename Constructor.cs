@@ -13,13 +13,13 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Data.Common;
 using SQLitePCL;
+using System.Runtime.CompilerServices;
 
 namespace WinFormsApp
 {
 
     public partial class Constructor : Form
     {
-
         private SqlConnection? sqlConnection = null;
         private SqlDataAdapter? adapter = null;
         private SqlCommandBuilder? commandBuilder = null;
@@ -30,7 +30,7 @@ namespace WinFormsApp
             InitializeComponent();
         }
 
-        private void Constructor_Load(object sender, EventArgs e)
+        internal void Constructor_Load(object sender, EventArgs e)
         {
             sqlConnection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\Programs\Visual Studio Projects\WinFormsApp\DB\Database1.mdf"";Integrated Security=True");
             sqlConnection.Open();
@@ -44,10 +44,10 @@ namespace WinFormsApp
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-
             try
             {
                 adapter.Update(table);
+                backupTable = table.Copy();
                 MessageBox.Show("Данные успешно сохранены.");
             }
             catch (Exception ex)
