@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace WinFormsApp.ORM
 {
-    public class Customers
+    public class Components
     {
         public int Id { get; set; }
-        public string? Login { get; set; }
-        public string? Password { get; set; }
-        public ICollection<Orders>? Orders { get; set; }
+        public string Name { get; set; }
+        public string Type { get; set; }
+        public int Price { get; set; }
+        public int Stock { get; set; }
     }
 }

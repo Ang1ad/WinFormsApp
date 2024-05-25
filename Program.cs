@@ -3,14 +3,16 @@ using WinFormsApp.ORM;
 
 namespace WinFormsApp
 {
+
     #region ORM
     internal static class Program
     {
+
         static IEnumerable<Customers> CreateFakeData()
         {
             var customers = new List<Customers>
             {
-                new Customers
+               /* new Customers
                 {
                     Login = "login", Password = "password", Orders = new List<Orders>
                     {
@@ -25,7 +27,7 @@ namespace WinFormsApp
                         new Orders {order_date = "20.05.2023", total_price = 10000000},
                         new Orders {order_date = "15.05.2024", total_price = 100000000}
                     }
-                }
+                }*/
             };
 
             return customers;
@@ -38,19 +40,19 @@ namespace WinFormsApp
         [STAThread]
         static void Main()
         {
-            /*var options = new DbContextOptionsBuilder<OrdersContext>()
+            var options = new DbContextOptionsBuilder<OrdersContext>()
                 .UseSqlite("Filename=../../../MyLocalLibrary.db")
                 .Options;
 
             using var db = new OrdersContext(options);
 
-            db.Database.EnsureCreated();*/
+            db.Database.EnsureCreated();
 
-            /*var customers = CreateFakeData();
+            var customers = CreateFakeData();
 
             db.Customers.AddRange(customers);
 
-            db.SaveChanges();*/
+            db.SaveChanges();
 
             /*foreach (var customer in db.Customers.Include(c => c.Orders))
             {
