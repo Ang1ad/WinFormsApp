@@ -20,35 +20,25 @@ namespace WinFormsApp
 
     public partial class Constructor : Form
     {
-        private SqlConnection? sqlConnection = null;
-        private SqlDataAdapter? adapter = null;
-        private SqlCommandBuilder? commandBuilder = null;
-        private DataTable? table = null;
-        private DataTable? backupTable;
+        public Connection connection;
+        public static DataGridView SharedDataGridView { get; private set; }
         public Constructor()
         {
             InitializeComponent();
+            SharedDataGridView = dataGridView1;
         }
 
         internal void Constructor_Load(object sender, EventArgs e)
         {
-            sqlConnection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\Programs\Visual Studio Projects\WinFormsApp\DB\Database1.mdf"";Integrated Security=True");
-            sqlConnection.Open();
-            adapter = new SqlDataAdapter("SELECT * FROM components", sqlConnection);
-            commandBuilder = new SqlCommandBuilder(adapter);
-            table = new DataTable();
-            adapter.Fill(table);
-            dataGridView1.DataSource = table;
-            backupTable = table.Copy();
+            connection = new();
+            connection.GetConnection(SharedDataGridView, "SELECT * FROM components");
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
             try
             {
-                adapter.Update(table);
-                backupTable = table.Copy();
-                MessageBox.Show("Данные успешно сохранены.");
+                connection.SaveConnection();
             }
             catch (Exception ex)
             {
@@ -60,15 +50,7 @@ namespace WinFormsApp
         {
             try
             {
-                foreach (DataGridViewRow row in dataGridView1.SelectedRows)
-                {
-                    if (!row.IsNewRow)
-                    {
-                        dataGridView1.Rows.Remove(row);
-                    }
-                }
-                adapter.Update(table);
-                MessageBox.Show("Выбранные строки успешно удалены.");
+                connection.DeleteConnnection(SharedDataGridView);
             }
             catch (Exception ex)
             {
@@ -78,9 +60,7 @@ namespace WinFormsApp
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            table.Clear();
-            table.Merge(backupTable);
-            MessageBox.Show("Данные успешно восстановлены.");
+            connection.RestoreConnection();
         }
     }
 }

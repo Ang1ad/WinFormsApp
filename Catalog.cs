@@ -24,7 +24,7 @@ namespace WinFormsApp
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            var GameForm = new ForGames();
+            var GameForm = new ForGames(Constructor.SharedDataGridView);
             GameForm.ShowDialog();
         }
 
