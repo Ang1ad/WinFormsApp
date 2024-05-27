@@ -57,7 +57,7 @@
             loginButton.TabIndex = 1;
             loginButton.Text = "Login";
             loginButton.UseVisualStyleBackColor = true;
-            loginButton.Click += button1_Click;
+            loginButton.Click += loginButton_Click;
             // 
             // registerButton
             // 
@@ -145,7 +145,7 @@
             repeatPasswordRegister.TabIndex = 11;
             repeatPasswordRegister.Text = "Repeat password";
             // 
-            // Form1
+            // Auth
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -162,8 +162,9 @@
             Controls.Add(registerButton);
             Controls.Add(loginButton);
             Controls.Add(loginLoginTextBox);
-            Name = "Form1";
+            Name = "Auth";
             Text = "Login or register";
+            Load += Auth_Load;
             ResumeLayout(false);
             PerformLayout();
         }

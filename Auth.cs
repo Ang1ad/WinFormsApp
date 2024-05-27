@@ -3,43 +3,80 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using Microsoft.VisualBasic.Logging;
 using BCrypt.Net;
+using Microsoft.VisualBasic;
 
 namespace WinFormsApp
 {
     public partial class Auth : Form
     {
+        public string Login(DbContextOptions<OrdersContext> options, string login, string password)
+        {
+            using (var db = new WinFormsApp.ORM.OrdersContext(options))
+            {
+                var customer = db.Customers
+                    .SingleOrDefault(c => c.Login == login);
+
+                if (customer != null && BCrypt.Net.BCrypt.Verify(password, customer.Password))
+                {
+                    string msg = "Авторизация успешна!";
+                    MessageBox.Show(msg);
+                    var SecondForm = new Form2();
+                    this.Hide();
+                    SecondForm.ShowDialog();
+                    return msg;
+                }
+                else
+                {
+                    string msg = "Неверный логин или пароль. Пожалуйста, попробуйте снова.";
+                    MessageBox.Show(msg);
+                    return msg;
+                }
+            }
+        }
+
+        public string Register(DbContextOptions<OrdersContext> options, string login, string password, string password2)
+        {
+            if (password == password2)
+            {
+                using (var db = new WinFormsApp.ORM.OrdersContext(options))
+                {
+                    var hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+                    var customer = new Customers
+                    {
+                        Login = login,
+                        Password = hashedPassword
+                    };
+
+                    db.Customers.Add(customer);
+                    db.SaveChanges();
+                    string msg = "Регистрация прошла успешно!";
+                    MessageBox.Show(msg);
+                    return msg;
+                }
+            }
+            else
+            {
+                string msg = "Пароли не совпадают";
+                MessageBox.Show(msg);
+                return msg;
+            }
+        }
+
         public Auth()
         {
             InitializeComponent();
         }
         #region login
-        private void button1_Click(object sender, EventArgs e)
+        private void loginButton_Click(object sender, EventArgs e)
         {
             var options = new DbContextOptionsBuilder<OrdersContext>()
             .UseSqlite("Filename=../../../MyLocalLibrary.db")
             .Options;
             var login = loginLoginTextBox.Text;
             var password = passwordLoginTextBox.Text;
-
             try
             {
-                using (var db = new WinFormsApp.ORM.OrdersContext(options))
-                {
-                    var customer = db.Customers
-                        .SingleOrDefault(c => c.Login == login);
-                     
-                    if (customer != null && BCrypt.Net.BCrypt.Verify(password, customer.Password))
-                    {
-                        MessageBox.Show("Авторизация успешна!");
-                        var SecondForm = new Form2();
-                        this.Hide();
-                        SecondForm.ShowDialog();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Неверный логин или пароль. Пожалуйста, попробуйте снова.");
-                    }
-                }
+                Login(options, login, password);
             }
             catch (Exception ex)
             {
@@ -58,26 +95,7 @@ namespace WinFormsApp
             {
                 var password = passwordRegisterTextBox.Text;
                 var password2 = repeatPasswordRegisterTextBox.Text;
-                if (password == password2)
-                {
-                    using (var db = new WinFormsApp.ORM.OrdersContext(options))
-                    {
-                        var hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
-                        var customer = new Customers
-                        {   
-                            Login = login,
-                            Password = hashedPassword
-                        };
-
-                        db.Customers.Add(customer);
-                        db.SaveChanges();
-                        MessageBox.Show("Регистрация прошла успешно!");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Пароли не совпадают");
-                }
+                Register(options, login, password, password2);
             }
             catch (Exception ex)
             {
@@ -85,5 +103,10 @@ namespace WinFormsApp
             }
         }
         #endregion
+
+        private void Auth_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

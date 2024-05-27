@@ -52,7 +52,7 @@ namespace WinFormsApp
             }
             else
             {
-                MessageBox.Show("Не удалось выполнить удаление. Проверьте соединение и таблицу данных.");
+                MessageBox.Show("Не удалось выполнить удаление.");
             }
         }
 
@@ -68,7 +68,7 @@ namespace WinFormsApp
             }
             else
             {
-                MessageBox.Show("Не удалось сохранить данные. Проверьте соединение и таблицу данных.");
+                MessageBox.Show("Не удалось сохранить данные.");
             }
         }
 
@@ -82,7 +82,7 @@ namespace WinFormsApp
             }
             else
             {
-                MessageBox.Show("Не удалось восстановить данные. Проверьте резервную копию таблицы.");
+                MessageBox.Show("Не удалось восстановить данные.");
             }
         }
 
