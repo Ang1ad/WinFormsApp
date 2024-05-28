@@ -13,7 +13,7 @@ namespace WinFormsApp
         {
             using (var db = new WinFormsApp.ORM.AuthContext(options))
             {
-                var customer = db.Customers
+                var customer = db.Users
                     .SingleOrDefault(c => c.Login == login);
                 if (customer != null && BCrypt.Net.BCrypt.Verify(password, customer.Password))
                 {
@@ -46,7 +46,7 @@ namespace WinFormsApp
                         Password = hashedPassword
                     };
 
-                    db.Customers.Add(customer);
+                    db.Users.Add(customer);
                     db.SaveChanges();
                     string msg = "Регистрация прошла успешно!";
                     MessageBox.Show(msg);

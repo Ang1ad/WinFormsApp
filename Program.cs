@@ -35,7 +35,7 @@ namespace WinFormsApp
 
             var customers = CreateFakeData();
 
-            db.Customers.AddRange(customers);
+            db.Users.AddRange(customers);
 
             db.SaveChanges();
             // To customize application configuration such as set high DPI settings or default font,
