@@ -9,13 +9,12 @@ namespace WinFormsApp
 {
     public partial class Auth : Form
     {
-        public string Login(DbContextOptions<OrdersContext> options, string login, string password)
+        public string Login(DbContextOptions<AuthContext> options, string login, string password)
         {
-            using (var db = new WinFormsApp.ORM.OrdersContext(options))
+            using (var db = new WinFormsApp.ORM.AuthContext(options))
             {
                 var customer = db.Customers
                     .SingleOrDefault(c => c.Login == login);
-
                 if (customer != null && BCrypt.Net.BCrypt.Verify(password, customer.Password))
                 {
                     string msg = "Авторизация успешна!";
@@ -34,14 +33,14 @@ namespace WinFormsApp
             }
         }
 
-        public string Register(DbContextOptions<OrdersContext> options, string login, string password, string password2)
+        public string Register(DbContextOptions<AuthContext> options, string login, string password, string password2)
         {
             if (password == password2)
             {
-                using (var db = new WinFormsApp.ORM.OrdersContext(options))
+                using (var db = new WinFormsApp.ORM.AuthContext(options))
                 {
                     var hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
-                    var customer = new Customers
+                    var customer = new Users
                     {
                         Login = login,
                         Password = hashedPassword
@@ -69,7 +68,7 @@ namespace WinFormsApp
         #region login
         private void loginButton_Click(object sender, EventArgs e)
         {
-            var options = new DbContextOptionsBuilder<OrdersContext>()
+            var options = new DbContextOptionsBuilder<AuthContext>()
             .UseSqlite("Filename=../../../MyLocalLibrary.db")
             .Options;
             var login = loginLoginTextBox.Text;
@@ -87,7 +86,7 @@ namespace WinFormsApp
         #region register
         private void registerButton_Click(object sender, EventArgs e)
         {
-            var options = new DbContextOptionsBuilder<OrdersContext>()
+            var options = new DbContextOptionsBuilder<AuthContext>()
                 .UseSqlite("Filename=../../../MyLocalLibrary.db")
                 .Options;
             var login = loginRegisterTextBox.Text;

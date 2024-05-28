@@ -45,11 +45,11 @@
             // 
             // customersBindingSource
             // 
-            customersBindingSource.DataSource = typeof(ORM.Customers);
+            customersBindingSource.DataSource = typeof(ORM.Users);
             // 
             // customersBindingSource1
             // 
-            customersBindingSource1.DataSource = typeof(ORM.Customers);
+            customersBindingSource1.DataSource = typeof(ORM.Users);
             // 
             // toolStrip1
             // 
@@ -93,6 +93,7 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.Location = new Point(0, 27);

@@ -8,9 +8,9 @@ namespace WinFormsApp
     internal static class Program
     {
 
-        static IEnumerable<Customers> CreateFakeData()
+        static IEnumerable<Users> CreateFakeData()
         {
-            var customers = new List<Customers>
+            var customers = new List<Users>
             {
                
             };
@@ -25,11 +25,11 @@ namespace WinFormsApp
         [STAThread]
         static void Main()
         {
-            var options = new DbContextOptionsBuilder<OrdersContext>()
+            var options = new DbContextOptionsBuilder<AuthContext>()
                 .UseSqlite("Filename=../../../MyLocalLibrary.db")
                 .Options;
 
-            using var db = new OrdersContext(options);
+            using var db = new AuthContext(options);
 
             db.Database.EnsureCreated();
 

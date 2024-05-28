@@ -33,7 +33,7 @@ namespace WinFormsApp
             _backupTable = _table.Copy();
         }
 
-        public void DeleteConnnection(DataGridView dataGridView)
+        public void DeleteConnection(DataGridView dataGridView)
         {
             if (_adapter != null && _table != null)
             {

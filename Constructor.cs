@@ -28,7 +28,7 @@ namespace WinFormsApp
             SharedDataGridView = dataGridView1;
         }
 
-        internal void Constructor_Load(object sender, EventArgs e)
+        public void Constructor_Load(object sender, EventArgs e)
         {
             connection = new();
             connection.GetConnection(SharedDataGridView, "SELECT * FROM components");
@@ -50,7 +50,7 @@ namespace WinFormsApp
         {
             try
             {
-                connection.DeleteConnnection(SharedDataGridView);
+                connection.DeleteConnection(SharedDataGridView);
             }
             catch (Exception ex)
             {

@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace WinFormsApp.ORM
 {
-    public class OrdersContext : DbContext
+    public class AuthContext : DbContext
     {
-        public OrdersContext(DbContextOptions<OrdersContext> options) : base(options)
+        public AuthContext(DbContextOptions<AuthContext> options) : base(options)
         {
 
         }
         
-        public DbSet<Customers> Customers { get; set; }
+        public DbSet<Users> Customers { get; set; }
         public DbSet<Orders> Orders { get; set; }
         public DbSet<Components> Components { get; set; }
     }
