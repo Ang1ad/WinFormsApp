@@ -22,25 +22,25 @@ namespace WinFormsApp
 
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
+        private void GameForm_Click(object sender, EventArgs e)
         {
-            var GameForm = new ForGames(Constructor.SharedDataGridView);
+            var GameForm = new ForGames(WinFormsApp.Constructor.SharedDataGridView);
             GameForm.ShowDialog();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void ServerForm_Click(object sender, EventArgs e)
         {
             var ServerForm = new ForServers();
             ServerForm.ShowDialog();
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void WorkForm_Click(object sender, EventArgs e)
         {
             var WorkForm = new ForWork();
             WorkForm.ShowDialog();
         }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
+        private void ConstructorForm_Click(object sender, EventArgs e)
         {
             var ConstructorForm = new Constructor();
             ConstructorForm.ShowDialog();

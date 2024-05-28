@@ -32,12 +32,12 @@
             ForGames = new PictureBox();
             ForServers = new PictureBox();
             ForWork = new PictureBox();
-            pictureBox4 = new PictureBox();
+            Constructor = new PictureBox();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ForGames).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ForServers).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ForWork).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Constructor).BeginInit();
             SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -45,7 +45,7 @@
             flowLayoutPanel1.Controls.Add(ForGames);
             flowLayoutPanel1.Controls.Add(ForServers);
             flowLayoutPanel1.Controls.Add(ForWork);
-            flowLayoutPanel1.Controls.Add(pictureBox4);
+            flowLayoutPanel1.Controls.Add(Constructor);
             flowLayoutPanel1.Location = new Point(12, 12);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(532, 411);
@@ -62,7 +62,7 @@
             ForGames.SizeMode = PictureBoxSizeMode.StretchImage;
             ForGames.TabIndex = 13;
             ForGames.TabStop = false;
-            ForGames.Click += pictureBox3_Click;
+            ForGames.Click += GameForm_Click;
             // 
             // ForServers
             // 
@@ -74,7 +74,7 @@
             ForServers.SizeMode = PictureBoxSizeMode.StretchImage;
             ForServers.TabIndex = 14;
             ForServers.TabStop = false;
-            ForServers.Click += pictureBox1_Click;
+            ForServers.Click += ServerForm_Click;
             // 
             // ForWork
             // 
@@ -86,19 +86,19 @@
             ForWork.SizeMode = PictureBoxSizeMode.StretchImage;
             ForWork.TabIndex = 15;
             ForWork.TabStop = false;
-            ForWork.Click += pictureBox2_Click;
+            ForWork.Click += WorkForm_Click;
             // 
-            // pictureBox4
+            // Constructor
             // 
-            pictureBox4.Cursor = Cursors.Hand;
-            pictureBox4.Image = Properties.Resources.hyperpc_teaser_configurator;
-            pictureBox4.Location = new Point(277, 206);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(244, 200);
-            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 16;
-            pictureBox4.TabStop = false;
-            pictureBox4.Click += pictureBox4_Click;
+            Constructor.Cursor = Cursors.Hand;
+            Constructor.Image = Properties.Resources.hyperpc_teaser_configurator;
+            Constructor.Location = new Point(277, 206);
+            Constructor.Name = "Constructor";
+            Constructor.Size = new Size(244, 200);
+            Constructor.SizeMode = PictureBoxSizeMode.StretchImage;
+            Constructor.TabIndex = 16;
+            Constructor.TabStop = false;
+            Constructor.Click += ConstructorForm_Click;
             // 
             // Form2
             // 
@@ -112,7 +112,7 @@
             ((System.ComponentModel.ISupportInitialize)ForGames).EndInit();
             ((System.ComponentModel.ISupportInitialize)ForServers).EndInit();
             ((System.ComponentModel.ISupportInitialize)ForWork).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Constructor).EndInit();
             ResumeLayout(false);
         }
 
@@ -122,6 +122,6 @@
         private PictureBox ForGames;
         private PictureBox ForServers;
         private PictureBox ForWork;
-        private PictureBox pictureBox4;
+        private PictureBox Constructor;
     }
 }
