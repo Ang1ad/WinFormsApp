@@ -22,31 +22,12 @@ namespace WinFormsApp.Pattern
             _connection = new Connection();
             _connection.GetConnection(Constructor.SharedDataGridView, "SELECT * FROM components");
         }
-        public void BuildMotherboard()
-        {
-            _connection.GetConnection(Constructor.SharedDataGridView, "SELECT * FROM COMPONENTS WHERE type = 'Motherboard'");
-        }
-
-        public void BuildPSU()
-        {
-            _connection.GetConnection(Constructor.SharedDataGridView, "SELECT * FROM COMPONENTS WHERE type = 'PSU'");
-        }
-        public void BuildGPU()
-        {
-            _connection.GetConnection(Constructor.SharedDataGridView, "SELECT * FROM COMPONENTS WHERE type = 'GPU'");
-        }
-        public void BuildCPU()
-        {
-            _connection.GetConnection(Constructor.SharedDataGridView, "SELECT * FROM COMPONENTS WHERE type = 'CPU'");
-        }
-        public void BuildRAM()
-        {
-            _connection.GetConnection(Constructor.SharedDataGridView, "SELECT * FROM COMPONENTS WHERE type = 'RAM'");
-        }
-        public void BuildROM()
-        {
-            _connection.GetConnection(Constructor.SharedDataGridView, "SELECT * FROM COMPONENTS WHERE type = 'ROM'");
-        }
+        public void BuildMotherboard() { _connection.GetConnection(Constructor.SharedDataGridView, "SELECT * FROM COMPONENTS WHERE type = 'Motherboard'"); }
+        public void BuildPSU() { _connection.GetConnection(Constructor.SharedDataGridView, "SELECT * FROM COMPONENTS WHERE type = 'PSU'"); }
+        public void BuildGPU() { _connection.GetConnection(Constructor.SharedDataGridView, "SELECT * FROM COMPONENTS WHERE type = 'GPU'"); }
+        public void BuildCPU() { _connection.GetConnection(Constructor.SharedDataGridView, "SELECT * FROM COMPONENTS WHERE type = 'CPU'"); }
+        public void BuildRAM() { _connection.GetConnection(Constructor.SharedDataGridView, "SELECT * FROM COMPONENTS WHERE type = 'RAM'"); }
+        public void BuildROM() { _connection.GetConnection(Constructor.SharedDataGridView, "SELECT * FROM COMPONENTS WHERE type = 'ROM'"); }
 
         public PC GetPC()
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WinFormsApp.ORM
 {
-    public class Users
+    public class Customers
     {
         public int Id { get; set; }
         public string? Login { get; set; }

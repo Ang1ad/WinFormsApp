@@ -8,9 +8,9 @@ namespace WinFormsApp
     internal static class Program
     {
 
-        static IEnumerable<Users> CreateFakeData()
+        static IEnumerable<Customers> CreateFakeData()
         {
-            var customers = new List<Users>
+            var customers = new List<Customers>
             {
                
             };
@@ -35,7 +35,7 @@ namespace WinFormsApp
 
             var customers = CreateFakeData();
 
-            db.Users.AddRange(customers);
+            db.Customers.AddRange(customers);
 
             db.SaveChanges();
             // To customize application configuration such as set high DPI settings or default font,

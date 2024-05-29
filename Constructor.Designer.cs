@@ -45,11 +45,11 @@
             // 
             // customersBindingSource
             // 
-            customersBindingSource.DataSource = typeof(ORM.Users);
+            customersBindingSource.DataSource = typeof(ORM.Customers);
             // 
             // customersBindingSource1
             // 
-            customersBindingSource1.DataSource = typeof(ORM.Users);
+            customersBindingSource1.DataSource = typeof(ORM.Customers);
             // 
             // toolStrip1
             // 
